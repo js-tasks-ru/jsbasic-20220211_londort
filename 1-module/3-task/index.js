@@ -8,3 +8,4 @@ function ucFirst (str) {
 }
 
 ucFirst(``);
+ucFirst(`ваня`);
