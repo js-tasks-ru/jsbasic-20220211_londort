@@ -1,10 +1,9 @@
 function ucFirst (str) {
-  if (str == false) {
+  if (!str) {
     return str
   }
-  let trimmer = str.trim();
-  let upperCase = trimmer[0].toUpperCase();
-  return upperCase + trimmer.slice(1);
+  let upperCase = str[0].toUpperCase();
+  return upperCase + str.slice(1);
 }
 
 ucFirst(``);
