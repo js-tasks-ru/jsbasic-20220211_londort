@@ -9,3 +9,4 @@ function truncate(str, maxlength) {
 
 truncate ('Вот, что мне хотелось бы сказать на эту тему:', 20)
 truncate ('Всем привет!', 20)
+truncate ('something to show', 11)
