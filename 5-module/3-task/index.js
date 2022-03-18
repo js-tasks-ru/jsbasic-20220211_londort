@@ -4,15 +4,16 @@ function initCarousel() {
         prev = document.querySelector('.carousel__arrow_left'),
         next = document.querySelector('.carousel__arrow_right');
 
-  let slideWidth = slides[0].offsetWidth,
+  let slideWidth = sliderLine.offsetWidth,
       offset = 0;
 
   prev.style.display = 'none';
 
   next.addEventListener('click', () => {
     offset = offset + slideWidth;
-    sliderLine.style.left = -offset + 'px';
-
+    let x = sliderLine.style.transform = `translateX(${-offset}px)`;
+    console.log(x)
+    
     if (offset == slideWidth * (slides.length - 1)) {
       next.style.display = 'none';
     }else {
@@ -22,9 +23,12 @@ function initCarousel() {
 
   prev.addEventListener('click', () => {
     offset = offset - slideWidth;
+    let y = sliderLine.style.transform = `translateX(${-offset}px)`;
+    console.log(y);
+
     if (offset !== 0) {
       prev.style.display = '';
     };
-    sliderLine.style.left = -offset + 'px';
-  }); 
+  });  
+  console.log(slideWidth);
 }
