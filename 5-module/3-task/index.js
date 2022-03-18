@@ -7,28 +7,36 @@ function initCarousel() {
   let slideWidth = sliderLine.offsetWidth,
       offset = 0;
 
-  prev.style.display = 'none';
+  
 
-  next.addEventListener('click', () => {
-    offset = offset + slideWidth;
-    let x = sliderLine.style.transform = `translateX(${-offset}px)`;
-    console.log(x)
-    
+  function arrowControl () {
     if (offset == slideWidth * (slides.length - 1)) {
       next.style.display = 'none';
     }else {
       next.style.display = '';
+    };
+
+    if (offset !== 0) {
+      prev.style.display = '';
+    }else {
+      prev.style.display = 'none';
     }
+  }
+
+  arrowControl();
+
+  next.addEventListener('click', () => {
+    offset = offset + slideWidth;
+    let x = sliderLine.style.transform = `translateX(${-offset}px)`;
+    console.log(x) 
+    arrowControl();
   });
 
   prev.addEventListener('click', () => {
     offset = offset - slideWidth;
     let y = sliderLine.style.transform = `translateX(${-offset}px)`;
-    console.log(y);
-
-    if (offset !== 0) {
-      prev.style.display = '';
-    };
+    console.log(y); 
+    arrowControl();
   });  
   console.log(slideWidth);
 }
