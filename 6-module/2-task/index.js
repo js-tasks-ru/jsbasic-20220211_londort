@@ -26,19 +26,13 @@ export default class ProductCard {
         </button>
       </div>
     </div>`;
-    this.#getParent().addEventListener('click', this.#onBtnClick);
-  }
-  #getButton() {
-    return this.elem.querySelector('.card__button');
-  }
-  #getParent() {
-    return this.elem.querySelector('.card__top');
+    this.elem.addEventListener('click', this.#onBtnClick);
   }
   #onBtnClick = () => {
     const event = new CustomEvent('product-add', {
       bubbles: true,
       detail: this.id,
     });
-    this.#getButton().dispatchEvent(event)
+    this.elem.dispatchEvent(event)
   }
 }
